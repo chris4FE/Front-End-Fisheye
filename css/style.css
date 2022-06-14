@@ -42,9 +42,30 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.photographer_section article p{
+    color: #D3573C;
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.photographer_section article .tagline{
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: inherit;
+}
+.photographer_section article .price{
+    color: #757575;
+    font-size: 14px;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    /* -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1)); box-reflection shadow*/
+    box-shadow: 0 3px 10px 5px rgba(196, 196, 196, 0.5);
+    object-fit: cover;
 }
