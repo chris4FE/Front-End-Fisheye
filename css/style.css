@@ -31,12 +31,18 @@ h1 {
     margin-top: 100px;
 }
 
+.photographer_section a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .photographer_section article {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .photographer_section article h2 {
