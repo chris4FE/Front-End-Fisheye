@@ -1,3 +1,4 @@
+import {getPhotographers} from "../utils/api.js";
 import {photographerFactory} from "../factories/photographerFactory.js";
 
 // Displaying data on single photographers' page
@@ -8,8 +9,8 @@ function getPhotographersId() {
 
 }
 
-function displayProfile() {
-    const phototographerProfileContainer = document.querySelector('.photographer-header');
+function displayProfile(photographers) {
+    const phototographerProfileContainer = document.querySelector(".photographer-header");
 
     photographers.forEach((photographer) => {
         if (photographer.id === getPhotographersId()) {

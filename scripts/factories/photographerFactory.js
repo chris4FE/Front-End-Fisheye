@@ -3,7 +3,7 @@ import {getPhotographers} from "../utils/api.js";
 // Displaying photographer's data on homepage
 
 export function photographerFactory(data) {
-    const { name, id, portrait, city, country, tagline, price } = data;
+    const { name, id, portrait, city, country, tagline } = data;
 
     const picture = `./assets/photographers/${portrait}`;
 
@@ -58,8 +58,8 @@ export function photographerFactory(data) {
         taglineTextContact.textContent = tagline;
     
         const imgContact = document.createElement( 'img' );
-            imgContact.setAttribute("src", picture);
-            imgContact.setAttribute('loading', 'lazy')
+        imgContact.setAttribute("src", picture);
+        imgContact.setAttribute('loading', 'lazy')
     
         phototographerProfileContainer.appendChild(contactWrapper);
         contactWrapper.appendChild(h2Contact);

@@ -9,11 +9,3 @@ export async function getPhotographers() {
         photographers: [...photographers]
     })
 }
-
-// Displaying data on single photographers' page
-
-function getPhotographersId() {
-    // fetch photographers' ID
-    return parseInt(new URLSearchParams(window.location.search).get('id'));
-
-}
