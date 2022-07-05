@@ -1,11 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+}
+
 #contact_modal {
     display: none;
 }
 
-.photograph-header {
+.photographer-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    
+}
+
+.photographer-header .photographer-page-card-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+    font-weight: 400;
+    height: 100%;
+}
+
+.photographer-header .photographer_card_name{
+    font-size: 64px;
+    margin: 0;
+    color: #d3573c;
+}
+
+.photographer-header .photographer_card_location{
+    font-size: 31px;
+    margin-top: 16px;
+    margin-bottom: 19px;
+    color: #901C1C;
+}
+
+.photographer-header .photographer_card_tagline{
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+}
+
+.photographer-header .photographer_card_image{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .contact_button {
@@ -31,11 +75,34 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: absolute;
+    top: 80px;
 }
 
 .modal header {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.modal header h3 {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.modal .contact-header-title{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-header-title h2{
+    margin: 0;
 }
 
 .modal header img {
@@ -46,6 +113,7 @@
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    line-height: 83px;
 }
 
 form {
@@ -71,6 +139,18 @@ form div {
 form input {
     width: 100%;
     height: 68px;
+    border: none;
+    border-radius: 5px;
+}
+
+form .error {
+    margin-top: 5px;
+    color: #901C1C;
+}
+
+form textarea {
+    width: 100%;
+    height: 150px;
     border: none;
     border-radius: 5px;
 }

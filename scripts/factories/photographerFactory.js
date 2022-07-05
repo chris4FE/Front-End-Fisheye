@@ -1,11 +1,21 @@
-import {getPhotographers} from "../utils/api.js";
+// import {displayModal} from "../utils/contactForm.js";
+// import {Photographer} from "../models/photographers.js";
 
 // Displaying photographer's data on homepage
-
+/**
+ * 
+ * @param {*} data 
+ * @returns photographer's name, picture, index page card and photographer's page card
+ */
 export function photographerFactory(data) {
-    const { name, id, portrait, city, country, tagline } = data;
+    const { name, id, portrait, city, country, tagline, price } = data;
 
     const picture = `./assets/photographers/${portrait}`;
+
+    /**
+     * 
+     * @returns index page info card
+     */
 
     function getUserCardDOM() {
         const lienPagePhotographe = document.createElement('a');
@@ -39,38 +49,109 @@ export function photographerFactory(data) {
 
         return (lienPagePhotographe);
     }
-    return { name, picture, getUserCardDOM }
 
+    // function getUserCardDOM() {
 
+    //     constructor(photographer) {this._photographer = Photographer}
+    
+    //             function createCard() {
+    //             const card = document.createElement('article');
+    //             card.classList.add('photographer_card');
+        
+    //             card.innerHTML = `
+    //             <a href="photographer.html?id=${this._photographer.id}">
+    //             <img class="photographer_card_image" src="./assets/photographers/${this._photographer.portrait}" alt="${this._photographer.name}">
+    //             <h2 class="photographer_card_name">${this._photographer.name}</h2>
+    //             <p class="photographer_card_location">${this._photographer.location}</p>
+    //             <p class="photographer_card_tagline">${this._photographer.tagline}</p>
+    //             <p class="photographer_card_price">${this._photographer.price}€/jour</p>
+    //         </a>
+    //             `
 
+    //         return card;
+    //     }
+    // }
+
+    /**
+     * 
+     * @returns photographer's page info card
+     */
     function getUserCardPageDOM() {
-        const phototographerProfileContainer = document.querySelector('.photographer-header');
-        const contactWrapper = phototographerProfileContainer.createElement('div');
     
-        const h2Contact = document.createElement( 'h2' );
-        h2Contact.textContent = name;
+        let contactContainer = document.createElement('div');
+        contactContainer.classList.add('photographer-page-card-container');
+
+        // return (`
+        
+        // <div class="photographer-page-card-container">
+        //     <div class="photographer_card_info_wrap">
+        //         <h2 class="photographer_card_name">${name}</h2>
+        //         <p class="photographer_card_location">${city + ', ' + country}</p>
+        //         <p class="photographer_card_tagline">${tagline}</p>
+        //     </div>
+        //     <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        //     <img class="photographer_card_image" src="./assets/photographers/${portrait}" alt="${name}">
+        // </div>
+
+        // `)
+
+        contactContainer.innerHTML = `
+        
+        <div class="photographer_card_info_wrap">
+            <h2 class="photographer_card_name">${name}</h2>
+            <p class="photographer_card_location">${city + ', ' + country}</p>
+            <p class="photographer_card_tagline">${tagline}</p>
+        </div>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <img class="photographer_card_image" src="./assets/photographers/${portrait}" alt="${name}">
+
+        `;
+
     
-        const locationContact = document.createElement( 'p' );
-        locationContact.textContent = [city + ', ' + country];
+        // const h2Contact = document.createElement( 'h2' );
+        // h2Contact.textContent = name;
     
-        const taglineTextContact = document.createElement( 'p' );
-        taglineTextContact.classList.add('tagline');
-        taglineTextContact.textContent = tagline;
+        // const locationContact = document.createElement( 'p' );
+        // locationContact.classList.add('location');
+        // locationContact.textContent = [city + ', ' + country];
     
-        const imgContact = document.createElement( 'img' );
-        imgContact.setAttribute("src", picture);
-        imgContact.setAttribute('loading', 'lazy')
+        // const taglineTextContact = document.createElement( 'p' );
+        // taglineTextContact.classList.add('tagline');
+        // taglineTextContact.textContent = tagline;
+
+        //  // Contact button
+        //  const contactBtn = document.createElement("button");
+        //  contactBtn.classList.add("contact_button");
+        //  contactBtn.setAttribute("onclick", "displayModal()");
+        //  contactBtn.setAttribute("aria-label", "Contactez-moi");
+        //  contactBtn.textContent = "Contactez-moi";
     
-        phototographerProfileContainer.appendChild(contactWrapper);
-        contactWrapper.appendChild(h2Contact);
-        contactWrapper.appendChild(locationContact);
-        contactWrapper.appendChild(taglineTextContact);
-        phototographerProfileContainer.appendChild(imgContact);
+        // const imgContact = document.createElement( 'img' );
+        // imgContact.setAttribute("src", picture);
+        // imgContact.setAttribute('loading', 'lazy')
+
+       
     
-        return phototographerProfileContainer;
+        // contactWrapperDiv.appendChild(h2Contact);
+        // contactWrapperDiv.appendChild(locationContact);
+        // contactWrapperDiv.appendChild(taglineTextContact);
+        // contactContainer.appendChild(contactWrapperDiv);
+        // contactContainer.appendChild(contactBtn);
+        // contactContainer.appendChild(imgContact);
+    
+        return contactContainer;
     
     
     }
+
+    function getUserContactDOM() {
+        const contactName = document.createElement('span');
+        contactName.textContent = name;
+        return contactName;
+    }
+
+    return { name, picture, getUserCardDOM, getUserCardPageDOM, getUserContactDOM }
+    
 } 
 
 

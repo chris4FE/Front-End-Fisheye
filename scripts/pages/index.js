@@ -1,6 +1,10 @@
 import {getPhotographers} from "../utils/api.js";
 import {photographerFactory} from "../factories/photographerFactory.js";
 
+/**
+ * Displays photographers' cards on index page
+ * @param {*} photographers 
+ */
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
