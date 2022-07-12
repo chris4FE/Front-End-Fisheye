@@ -1,73 +1,177 @@
-import {galleryFactory} from "../factories/galleryFactory.js";
+import {galeryFactory} from "../factories/galleryFactory.js";
+import {sortMediaByDate} from "../utils/listbox.js";
+import {sortMediaByLikes} from "../utils/listbox.js";
+import {sortMediaByTitle} from "../utils/listbox.js";
+import Lightbox from "../utils/lightbox.js";
+import {openLightbox} from "../utils/lightbox.js";
 
 
-// fetch media data
-const getMedias = async () => {
-    await fetch("../../data/photographers.json")
-      .then((res) => res.json())
-      .then((data) => (medias = data.media));
+
+// // fetch media data
+// const getMedias = async () => {
+//   let medias;
+
+//     await fetch("../../data/photographers.json")
+//       .then((res) => res.json())
+//       .then((data) => (medias = data.media));
   
-    return {
-      medias: [...medias],
-    };
-  };
+//     return ({
+//       medias: [...medias],
+//     })
+//   };
 
-  function getPhotographerId() {
-    let searchParam = (new URLSearchParams(window.location.search));
-    let id = parseInt(searchParam.get("id"));
-    console.log(id);
-    return id;
-  }
+//   function getPhotographerId() {
+//     let searchParam = (new URLSearchParams(window.location.search));
+//     let id = parseInt(searchParam.get("id"));
+//     console.log(id);
+//     return id;
+//   }
 
-//  display photographer gallery
-function displayGallery() {
-    const mediasFilter = medias.filter(
-        (media) => media.photographerID === parseInt(getPhotographerId())
-    );
+// //  display photographer gallery
+// function displayGallery() {
+//     const mediasFilter = medias.filter(
+//         (media) => media.photographerId === parseInt(getPhotographerId())
+//     );
 
-    const itemsSort = document.querySelector(
-        ".listbox-custom-new"
-      ).textContent; /** Cible le texte du bouton de tri */
+//     const itemsSort = document.querySelector(
+// ".listbox-custom-new").textContent; /** Cible le texte du bouton de tri */
     
-      /** ---------- Selectionne la fonction à utiliser selon la catégorie qui s'affiche  ---------- */
-      function selectSort(itemSort) {
-        if (itemSort === "Date") {
-          /** Si le texte du bouton est égale à "Date" */
-          return sortMediaByDate; /** Retourne le tri par dates */
-        } else if (itemSort === "Popularité") {
-          /** Sinon si le texte du bouton est égale à "Popularité" */
-          return sortMediaByLikes; /** Retourne le tri par likes */
-        } else {
-          return sortMediaByTitle; /** Sinon retourne le tri par titres */
-        }
-      }
+//       /** ---------- Selectionne la fonction à utiliser selon la catégorie qui s'affiche  ---------- */
+//       function selectSort(itemSort) {
+//         if (itemSort === "Date") {
+//           /** Si le texte du bouton est égale à "Date" */
+//           return sortMediaByDate; /** Retourne le tri par dates */
+//         } else if (itemSort === "Popularité") {
+//           /** Sinon si le texte du bouton est égale à "Popularité" */
+//           return sortMediaByLikes; /** Retourne le tri par likes */
+//         } else {
+//           return sortMediaByTitle; /** Sinon retourne le tri par titres */
+//         }
+//       }
     
-      /** ---------- Medias filtrés et triés  ---------- */
-      mediasFilter.sort(
-        selectSort(itemsSort)
-      ); /** TRI dans les médias filtrés selon la selection de tri */
+//       /** ---------- Medias filtrés et triés  ---------- */
+//       mediasFilter.sort(
+//         selectSort(itemsSort)
+//       ); /** TRI dans les médias filtrés selon la selection de tri */
     
-      const photographGalery = document.querySelector(".photographer-work");
+//       const photographGalery = document.querySelector(".photographer-work");
     
-      photographGalery.innerHTML = ""; /** Vide le DOM de la galerie */
+//       photographGalery.innerHTML = ""; /** Vide le DOM de la galerie */
     
-      mediasFilter.forEach((media) => {
-        if (mediasFilter.indexOf()) {
-          const photographerModelGalery =
-            galleryFactory(media); /** Récupération des données des médias du photographe ciblé */
-          const userGalery =
-            photographerModelGalery.getUserGalleryDOM(); /** Création de la carte du média dans la galerie du photographe */
-          photographGalery.appendChild(userGalery); 
+//       mediasFilter.forEach((media) => {
+//         if (mediasFilter.indexOf()) {
+//           const photographerModelGalery =
+//             galleryFactory(media); /** Récupération des données des médias du photographe ciblé */
+//           const userGalery =
+//             photographerModelGalery.getUserGalleryDOM(); /** Création de la carte du média dans la galerie du photographe */
+//           photographGalery.appendChild(userGalery); 
           
-        }
-      });
+//         }
+//       });
     
     
+// }
+
+// async function initGallery() {
+//     const { medias } = await getMedias(); /** Récupère les données des médias avant affichage */
+//     displayGallery(medias); /** Appel de la fonction d'affichage des données de la galerie */
+//   }
+
+//   initGallery;
+
+/** fetch data from json file */
+let medias; 
+async function getMedias() {
+  
+
+  await fetch("../../data/photographers.json")
+    .then((res) => res.json())
+    .then((data) => (medias = data.media));
+
+  return ({
+    medias: [...medias],
+  })
+};
+
+/** fetch data and transform ID in number */
+function getPhotographerId() {
+  let searchParam = new URLSearchParams(window.location.search);
+  let id = parseInt(searchParam.get("id"));
+  console.log(id);
+  return id;
 }
 
-async function initGallery() {
-    const { medias } = await getMedias(); /** Récupère les données des médias avant affichage */
-    displayGallery(medias); /** Appel de la fonction d'affichage des données de la galerie */
+/** display gallery medias on photographer page */
+export function photographGaleryDisplay() {
+  const mediasFilter = medias.filter(
+    (media) => media.photographerId === parseInt(getPhotographerId())
+  ); /** filters media by comparing photographer id with id in html page URL */
+
+  const itemsSort = document.querySelector(".listbox-custom-new").textContent; /** targets sorting button */
+
+  /** select function to use depending on sorting type */
+  function selectSort(itemSort) {
+    if (itemSort === "Date") {
+      return sortMediaByDate;
+    } else if (itemSort === "Popularité") {
+      return sortMediaByLikes; 
+    } else {
+      return sortMediaByTitle; 
+    }
   }
 
-  initGallery;
+  /** Filtered and sorted medias */
+  mediasFilter.sort(
+    selectSort(itemsSort)
+  ); /** sort items after theyve been filtered by photographer */
+
+  const photographGalery = document.querySelector(".photographer-work");
+  const photographLightbox = document.getElementById("lightbox-container");
+
+  photographGalery.innerHTML = ""; /** empties gallery */
+  photographLightbox.innerHTML = ""; /** empties carousel */
+
+  mediasFilter.forEach((media) => {
+    if (mediasFilter.indexOf()) {
+      const photographerModelGalery =
+        galeryFactory(media); /** fetch media data of photographer */
+      const userGalery =
+        photographerModelGalery.getUserGaleryDOM(); /** create media card in gallery */
+      photographGalery.appendChild(userGalery);
+
+      const photographerModelGaleryPhoto = galeryFactory(media);
+      const userGaleryPhoto =
+        photographerModelGaleryPhoto.getUserGaleryLightbox(); /** create media card inside carousel */
+      photographLightbox.appendChild(userGaleryPhoto);
+    }
+  });
+
+  const mediasLightbox = document.querySelectorAll(".galery-medias");
+
+  /** addeventlsiteners to open media in carousel */
+  for (let i = 0; i < mediasLightbox.length; i++) {
+    mediasLightbox[i].addEventListener("click", () => {
+      new Lightbox(
+        i,
+        mediasLightbox.length
+      ); /** create carousel depending on media clicked  dependign on its index and amount of media for carousel length */
+      openLightbox(); /** open carousel */
+    });
+    mediasLightbox[i].addEventListener("keydown", (e) => {
+      /** create carousel depending on media selected by hitting ENTER key */
+      if (e.key === "Enter") {
+        new Lightbox(i + 1, mediasLightbox.length);
+        openLightbox();
+      }
+    });
+  }
+  new Lightbox();
+}
+
+/** init gallery display on photographer page */
+export async function initGalery() {
+  const { medias } = await getMedias(); /** fetch media data before displaying */
+  photographGaleryDisplay(medias); /** init displaying gallery */
+}
+
+initGalery();

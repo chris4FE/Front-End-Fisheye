@@ -15,7 +15,7 @@
     <main id="main">
       <div class="photographer-header">
       </div>
-      <div id="listbox">
+      <section id="listbox">
         <label id="listbox-label" for="trier" role="input label"
           >Trier par</label
         >
@@ -26,8 +26,23 @@
             <option value="titre">Titre</option>
           </select>
         </div>
+      </section>
+      <div class="photographer-work">
+
+        <!-- <article>
+          
+            <img class="photographer-image" src="./assets/photographers/82/Art_Mine.jpg" alt="" width="200">
+            <div class="photographer-info">
+              <h2></h2>
+              <div class="photographer-image-likes">
+                <span class="image-likes-number"></span>
+                <i class="image-likes-heart"></i>
+              </div>
+            </div>
+          
+        </article> -->
+
       </div>
-      <div class="photographer-work"></div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -70,16 +85,39 @@
 				</form>
 			</div>
 		</div>
+
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-label="image closeup view"
+      aria-hidden="true"
+      tabindex="1"
+    >
+      <div id="lightbox-container"></div>
+      <button
+        onclick="closeLightbox()"
+        id="lightbox-icon-close"
+        aria-label="Close dialog"
+      >x</button>
+      <button id="prev" aria-label="Previous image" role="link" tabindex="1"></button>
+      <button id="next" aria-label="Next image" role="link" tabindex="1">
+        >
+      </button>
+    </div>
     
     <script src="./scripts/utils/contactForm.js" type="module"></script>
     <script src="./scripts/factories/photographerFactory.js" type="module"></script>
     <script src="./scripts/pages/photographer.js" type="module"></script>
     <script src="./scripts/utils/api.js" type="module"></script>
-    <script src="./scripts/models/image.js" type="module"></script>
-    <script src="./scripts/models/video.js" type="module"></script>
+    <script src="./scripts/factories/image.js" type="module"></script>
+    <script src="./scripts/factories/video.js" type="module"></script>
     <script src="./scripts/models/photograhers.js" type="module"></script>
     <script src="./scripts/factories/galleryFactory.js" type="module"></script>
     <script src="./scripts/pages/gallery.js" type="module"></script>
     <script src="./scripts/utils/listbox.js" type="module"></script>
+    <script src="./scripts/models/mediaFactory.js" type="module"></script>
+    <script src="./scripts/utils/listbox.js" type="module"></script>
+    <script src="./scripts/utils/lightbox.js" type="module"></script>
+    <script src="./scripts/utils/likes.js" type="module"></script>
   </body>
 </html>

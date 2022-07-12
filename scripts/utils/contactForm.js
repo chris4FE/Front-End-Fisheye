@@ -165,7 +165,7 @@ function validateForm() {
         boolEmail &&
         boolMessage
     ) {
-        console.log(firstname.value, lastname.value, email.value, message.value);
+        console.log({Prenom : firstname.value, Nom : lastname.value, Email : email.value, Message : message.value});
         closeModal();
     } 
     
