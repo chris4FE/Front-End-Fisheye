@@ -3,8 +3,7 @@
 
 // Displaying photographer's data on homepage
 /**
- * 
- * @param {*} data 
+ * @param {*} data
  * @returns photographer's name, picture, index page card and photographer's page card
  */
 export function photographerFactory(data) {

@@ -148,7 +148,7 @@ export function photographGaleryDisplay() {
 
   const mediasLightbox = document.querySelectorAll(".galery-medias");
 
-  /** addeventlsiteners to open media in carousel */
+  /** addeventlisteners to open media in carousel */
   for (let i = 0; i < mediasLightbox.length; i++) {
     mediasLightbox[i].addEventListener("click", () => {
       new Lightbox(
