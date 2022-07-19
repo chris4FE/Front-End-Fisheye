@@ -161,6 +161,7 @@ form textarea {
 
 #listbox{
     margin: 20px 100px;
+    display: flex;
 }
 
 #listbox-label {
@@ -168,7 +169,7 @@ form textarea {
     font-size: 1.25em;
     display: flex;
     align-items: center;
-    padding-right: 0.6em;
+    padding-right: 1em;
   }
   
   .listbox-custom {

@@ -1,4 +1,5 @@
-
+import ImageFactory from "./imageFactory.js";
+import VideoFactory from "./videoFactory.js";
 
 
 export function galeryFactory(data) {
@@ -75,6 +76,7 @@ export function galeryFactory(data) {
         /** MEDIAS - video or image */
         if (image) {
           const imgPhoto = document.createElement("img");
+          // const imgPhoto = new ImageFactory(data);
           imgPhoto.classList.add("galery-medias");
           imgPhoto.setAttribute("src", mediaSrc);
           imgPhoto.setAttribute("data-mediaid", id);
@@ -84,6 +86,7 @@ export function galeryFactory(data) {
           figureGalery.appendChild(imgPhoto);
         } else {
           const vidPhoto = document.createElement("video");
+          // const vidPhoto = new VideoFactory(data);
           vidPhoto.classList.add("galery-medias");
           vidPhoto.setAttribute("type", "video/mp4");
           vidPhoto.setAttribute("src", mediaSrc);
@@ -91,7 +94,8 @@ export function galeryFactory(data) {
           vidPhoto.setAttribute("alt", title + ", closeup view");
           vidPhoto.setAttribute("role", "link");
           vidPhoto.setAttribute("tabindex", 0);
-          figureGalery.appendChild(vidPhoto);
+        // console.log(vidPhoto.render());
+        figureGalery.appendChild(vidPhoto);
         }
     
         figureGalery.appendChild(legendGalery);
