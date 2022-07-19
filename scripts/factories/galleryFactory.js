@@ -125,7 +125,7 @@ export function galeryFactory(data) {
           const imgPhotoLightbox = document.createElement("img");
           imgPhotoLightbox.setAttribute("src", mediaSrc);
           imgPhotoLightbox.classList.add("lightbox-modal-media");
-          imgPhotoLightbox.setAttribute("alt", "");
+          imgPhotoLightbox.setAttribute("alt" + title);
           imgPhotoLightbox.setAttribute("tabindex", "1");
           slideMedia.appendChild(imgPhotoLightbox);
         } else {
