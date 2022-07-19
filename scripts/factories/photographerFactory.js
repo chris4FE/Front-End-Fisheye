@@ -86,8 +86,38 @@ export function photographerFactory(data) {
         return contactName;
     }
 
-    return { name, picture, getUserCardDOM, getUserCardPageDOM, getUserContactDOM }
-    
+    /**
+     * Display side widget with total likes and photographer pricing
+     * @returns counter widget
+     */
+    function getUserCounterDOM() {
+        const asideWidget = document.createElement("aside");
+        const counterLikes = document.createElement("div");
+
+        /** Like Counter */
+        const counterLikesDisplay = document.createElement("span");
+        counterLikesDisplay.classList.add("counter-likes");
+        const likeHeart = document.createElement("i");
+        likeHeart.classList.add("fas", "fa-heart");
+        likeHeart.setAttribute("alt", "");
+        likeHeart.setAttribute("role", "img");
+
+        /** Photographer pricing */
+        const priceWidget = document.createElement("div");
+        const h5Widget = document.createElement("h5");
+        h5Widget.textContent = price + "€/jour";
+
+        asideWidget.appendChild(counterLikes);
+        counterLikes.appendChild(counterLikesDisplay);
+        counterLikes.appendChild(likeHeart);
+        asideWidget.appendChild(priceWidget);
+        priceWidget.appendChild(h5Widget);
+        return asideWidget;
+    }
+
+
+    return { name, picture, getUserCardDOM, getUserCardPageDOM, getUserContactDOM, getUserCounterDOM }
+
 } 
 
 

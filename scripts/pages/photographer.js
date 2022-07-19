@@ -22,6 +22,7 @@ function getPhotographersId() {
  */
 function displayProfile(photographers) {
     const phototographerProfileContainer = document.querySelector('.photographer-header');
+    const widget = document.querySelector(".widget");
     const contactNameForm = document.querySelector('.contact-name');
 
     photographers.forEach((photographer) => {
@@ -29,6 +30,10 @@ function displayProfile(photographers) {
             const photographerPageModel = photographerFactory(photographer);
             const userCardPageDOM = photographerPageModel.getUserCardPageDOM();
             phototographerProfileContainer.appendChild(userCardPageDOM);
+
+        // Display counter widget
+        const widgetDisplay = photographerPageModel.getUserCounterDOM();
+        widget.appendChild(widgetDisplay);
 
         // Display photographer's name on contact form
         const displayContact = photographerPageModel.getUserContactDOM();

@@ -416,3 +416,23 @@ input[type="checkbox"].like-input {
   #next {
     right: 2em;
   }
+
+  /* Counter Widget */
+  .widget aside {
+    position: fixed;
+    bottom: 0em;
+    left: 73%;
+    background-color: #db8876;
+    width: 15em;
+    height: 3em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.3em 0.3em 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    z-index: 2;
+    box-shadow: 0 0.1em 0.1em rgb(0 0 0 / 12%), 0 0.15em 0.15em rgb(0 0 0 / 12%),
+      0 0.25em 0.25em rgb(0 0 0 / 12%), 0 0.5em 0.5em rgb(0 0 0 / 12%),
+      0 1em 1em rgb(0 0 0 / 12%);
+  }
