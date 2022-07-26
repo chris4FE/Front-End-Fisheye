@@ -10,6 +10,7 @@ async function getLikes() {
       medias: [...medias],
     };
   }
+
   
   /** Likes function */
   function addClic() {
@@ -34,10 +35,43 @@ async function getLikes() {
           likeText++; /** Increment */
         }
         liked.textContent = likeText; /** modifies label */
-        displayLikes(); /** init displa likes function */
+        displayLikes(); /** init display likes function */
+
       });
     });
+
+
+    likesInput.forEach((likeInput) => {
+      likeInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+        return;
+        }
+        let likeText = parseInt(
+          e.target.nextSibling.textContent
+        ); /** Transform text into number (amount of likes) */
+        let liked = e.target.nextSibling; /** number of likes */
+        let maker = e.currentTarget; /** Target input */
+  
+        /** if checkbox isn't checked */
+        if (!maker.checked) {
+          likeText--; /** decrement */
+          /** if checkbox is checked */
+        } else {
+          likeText++; /** Increment */
+        }
+        liked.textContent = likeText; /** modifies label */
+        displayLikes(); /** init display likes function */
+
+      })
+
+      });
+  
+
   }
+
+  
+
+  
   
   /** show total likes */
   function displayLikes() {
@@ -64,6 +98,7 @@ async function getLikes() {
         totalLike + " "); /** updates total likes */
     });
   }
+
   
   /** initialize likes function */
   export async function initLike() {

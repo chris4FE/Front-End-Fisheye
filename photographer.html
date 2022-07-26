@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
     <main id="main">
       <div class="photographer-header">
@@ -22,7 +22,7 @@
         >
         <div class="listbox-custom">
           <select id="listbox-container" name="select" id="selection">
-            <option value="popularite">Popularité</option>
+            <option value="popularite" class="popularite">Popularité</option>
             <option value="date">Date</option>
             <option value="titre">Titre</option>
           </select>
@@ -30,27 +30,14 @@
       </section>
       <div class="photographer-work">
 
-        <!-- <article>
-          
-            <img class="photographer-image" src="./assets/photographers/82/Art_Mine.jpg" alt="" width="200">
-            <div class="photographer-info">
-              <h2></h2>
-              <div class="photographer-image-likes">
-                <span class="image-likes-number"></span>
-                <i class="image-likes-heart"></i>
-              </div>
-            </div>
-          
-        </article> -->
-
       </div>
     </main>
     <div id="contact_modal">
-			<div class="modal">
+			<div class="modal" role="dialog" aria-describedby="modal" aria-hidden="true" tabindex="-1">
 				<header>
           <div class="contact-header-title">
             <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()"/>
+            <img src="assets/icons/close.svg" id="close-modal" alt="Close Contact Form" onclick="closeModal()"/>
           </div>
               <h3 class="contact-name"></h3>
                

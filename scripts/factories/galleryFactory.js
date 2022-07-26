@@ -57,6 +57,7 @@ export function galeryFactory(data) {
         /** media likes */
         const legendLike = document.createElement("div");
         legendLike.classList.add("legend-like");
+        legendLike.setAttribute("tabindex", 0);
     
         /** Likes input field */
         const likeInput = document.createElement("input");
@@ -65,7 +66,6 @@ export function galeryFactory(data) {
         likeInput.classList.add("like-input");
         likeInput.setAttribute("role", "img");
         likeInput.setAttribute("aria-label", "likes");
-        likeInput.setAttribute("tabindex", "0");
     
         /** Likes label */
         const likeLabel = document.createElement("label");
@@ -76,25 +76,24 @@ export function galeryFactory(data) {
         /** MEDIAS - video or image */
         if (image) {
           const imgPhoto = document.createElement("img");
-          // const imgPhoto = new ImageFactory(data);
           imgPhoto.classList.add("galery-medias");
           imgPhoto.setAttribute("src", mediaSrc);
           imgPhoto.setAttribute("data-mediaid", id);
-          imgPhoto.setAttribute("alt", title + ", closeup view");
+          imgPhoto.setAttribute("alt", title);
           imgPhoto.setAttribute("role", "link");
           imgPhoto.setAttribute("tabindex", 0);
+          imgPhoto.style.cursor = "pointer";
           figureGalery.appendChild(imgPhoto);
         } else {
           const vidPhoto = document.createElement("video");
-          // const vidPhoto = new VideoFactory(data);
           vidPhoto.classList.add("galery-medias");
           vidPhoto.setAttribute("type", "video/mp4");
           vidPhoto.setAttribute("src", mediaSrc);
           vidPhoto.setAttribute("data-mediaid", id);
-          vidPhoto.setAttribute("alt", title + ", closeup view");
+          vidPhoto.setAttribute("alt", title);
           vidPhoto.setAttribute("role", "link");
           vidPhoto.setAttribute("tabindex", 0);
-        // console.log(vidPhoto.render());
+          vidPhoto.style.cursor = "pointer";
         figureGalery.appendChild(vidPhoto);
         }
     
@@ -125,7 +124,7 @@ export function galeryFactory(data) {
           const imgPhotoLightbox = document.createElement("img");
           imgPhotoLightbox.setAttribute("src", mediaSrc);
           imgPhotoLightbox.classList.add("lightbox-modal-media");
-          imgPhotoLightbox.setAttribute("alt" + title);
+          imgPhotoLightbox.setAttribute("alt", title + ", closeup view");
           imgPhotoLightbox.setAttribute("tabindex", "1");
           slideMedia.appendChild(imgPhotoLightbox);
         } else {
@@ -135,7 +134,7 @@ export function galeryFactory(data) {
           vidPhotoLightbox.setAttribute("type", "video/mp4");
           vidPhotoLightbox.setAttribute("preload", "metadata");
           vidPhotoLightbox.classList.add("lightbox-modal-media");
-          vidPhotoLightbox.setAttribute("aria-label", title);
+          vidPhotoLightbox.setAttribute("aria-label", title + ", closeup view");
           vidPhotoLightbox.setAttribute("tabindex", "1");
           slideMedia.appendChild(vidPhotoLightbox);
         }

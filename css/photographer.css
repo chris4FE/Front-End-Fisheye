@@ -14,7 +14,7 @@ body{
 
 .photographer-header {
     background-color: #FAFAFA;
-    height: 300px;
+    min-height: 300px;
     margin: 0 100px;
     
 }
@@ -65,6 +65,12 @@ body{
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin: 0 20px 0 20px;
+}
+
+.contact_button:hover {
+  background: #D3573C;
+  color: #000;
 }
 
 .modal {
@@ -193,6 +199,12 @@ form textarea {
     padding-left: 0.6em;
     position: relative;
   }
+
+  .listbox-custom-new:hover, .listbox-custom-new:active{
+    background: #D3573C;
+    color: #000;
+    position: relative;
+  }
   
   .select-items {
     background-color: #901c1c;
@@ -201,6 +213,10 @@ form textarea {
     z-index: 5;
     cursor: pointer;
   }
+  .select-items div:hover {
+    background: #D3573C;
+    color: #000;
+  }
   
   .select-items div {
     display: flex;
@@ -208,7 +224,7 @@ form textarea {
     min-height: 3em;
     width: 8em;
     border-top: solid #fafafa;
-    padding-left: 1.5em;
+    padding-left: .5em;
     cursor: pointer;
   }
   
@@ -227,9 +243,11 @@ form textarea {
     right: 0.5em;
   }
   
-  .listbox-custom-new.active::after {
+  .popularite::after {
     font-family: "Font Awesome 5 Free";
     content: "\f077";
+    position: absolute;
+    right: 0.5em;
   }
 
 /* gallery */

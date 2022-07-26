@@ -4,6 +4,8 @@ const first = document.getElementById('firstname');
 const last = document.getElementById('lastname');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
+const focusFirstName = document.getElementById('firstname');
+const closeBtnModal = document.getElementById('close-modal');
 
 
 // Error messages
@@ -42,12 +44,24 @@ const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 function displayModal() {
 	modal.style.display = "flex";
     modal.style.justifyContent = "center";
+    focusFirstName.focus();
 }
 
 // close contact form
 function closeModal() {
     modal.style.display = "none";
 };
+
+// navigation modal
+modal.addEventListener("keydown", function (e) {
+  e.stopPropagation();
+  if (e.key === "Escape") {
+    closeModal();
+  }
+  if (e.key === "Tab") {
+    if (document.activeElement === closeBtnModal) focusFirstName.focus();
+  }
+});
 
 // affecte la variable 
 document.displayModal = displayModal;

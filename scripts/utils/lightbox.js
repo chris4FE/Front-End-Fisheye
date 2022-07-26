@@ -17,7 +17,7 @@ function closeLightbox() {
   lightboxDisplay.style.display = "none";
   main.setAttribute("aria-hidden", false);
   lightboxDisplay.setAttribute("aria-hidden", true);
-  logo.focus();
+  // logo.focus();
 }
 
 /** Carousel class */
