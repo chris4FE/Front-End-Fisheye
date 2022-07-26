@@ -170,7 +170,7 @@ form textarea {
     display: flex;
 }
 
-#listbox-label {
+.listbox-label {
     font-weight: 800;
     font-size: 1.25em;
     display: flex;

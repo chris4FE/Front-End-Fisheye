@@ -44,8 +44,7 @@ async function getLikes() {
     likesInput.forEach((likeInput) => {
       likeInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-        return;
-        }
+        
         let likeText = parseInt(
           e.target.nextSibling.textContent
         ); /** Transform text into number (amount of likes) */
@@ -62,6 +61,7 @@ async function getLikes() {
         liked.textContent = likeText; /** modifies label */
         displayLikes(); /** init display likes function */
 
+      }
       })
 
       });
