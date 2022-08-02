@@ -6,8 +6,8 @@ const mainArea = document.getElementById("main");
 const logo = document.getElementById("logo");
 const modal = document.getElementById('contact_modal');
 const widget = document.querySelector(".widget");
-const contactBtn = document.querySelector(".contact_button");
-const filterList = document.querySelector(".listbox-custom-new");
+// const contactBtn = document.querySelector(".contact_button");
+// const filterList = document.querySelector(".listbox-custom-new");
 
 
 
@@ -15,14 +15,14 @@ const filterList = document.querySelector(".listbox-custom-new");
 export function openLightbox() {
   lightboxDisplay.style.display = "block";
   mainArea.setAttribute("aria-hidden", true);
-  mainArea.setAttribute("tabindex", -1);
-  widget.setAttribute("tabindex", -1);
-  logo.setAttribute("tabindex", -1);
-  filterList.setAttribute("tabindex", -1);
+  // mainArea.setAttribute("tabindex", -1);
+  // widget.setAttribute("tabindex", -1);
+  // logo.setAttribute("tabindex", -1);
+  // filterList.setAttribute("tabindex", -1);
   mainArea.style.display = "none";
   modal.style.display = "none";
   widget.style.display = "none";
-  contactBtn.setAttribute("tabindex", -1);
+  // contactBtn.setAttribute("tabindex", -1);
   lightboxDisplay.setAttribute("aria-hidden", false);
   prevNavigation.focus();
 }
@@ -34,8 +34,8 @@ function closeLightbox() {
   lightboxDisplay.style.display = "none";
   mainArea.setAttribute("aria-hidden", false);
   lightboxDisplay.setAttribute("aria-hidden", true);
-  logo.setAttribute("tabindex", 0);
-  contactBtn.setAttribute("tabindex", 0);
+  // logo.setAttribute("tabindex", 0);
+  // contactBtn.setAttribute("tabindex", 0);
   mainArea.style.display = "block";               
   widget.style.display = "block";
   logo.focus();

@@ -49,21 +49,26 @@ async function getLikes() {
           // alert(e.target.firstElementChild.textContent )
         let likeText = parseInt(e.target.lastElementChild.textContent); /** Transform text into number (amount of likes) */
         let liked = e.target.lastElementChild; /** number of likes */
-        let maker = e.target.firstChild; /** Target input */
+        let maker = e.target.firstElementChild; /** Target input */
         // let container = e.currentTarget;
   
-        /** if checkbox isn't checked */
-        if (!maker.checked) {
+      
+         /** if checkbox isn't checked */
+         if (likeInputEnter.classList.contains("checked")) {
           likeText--; /** decrement */
+          likeInputEnter.classList.remove("checked");
+
           /** if checkbox is checked */
         } else {
           likeText++; /** Increment */
-        }
+          likeInputEnter.classList.add("checked");
 
+        }
       
         liked.textContent = likeText; /** modifies label */
         displayLikes(); /** init display likes function */
-      }
+      } 
+      
       
       })
 

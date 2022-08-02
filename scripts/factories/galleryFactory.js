@@ -129,7 +129,7 @@ export function galeryFactory(data) {
           imgPhotoLightbox.setAttribute("src", mediaSrc);
           imgPhotoLightbox.classList.add("lightbox-modal-media");
           imgPhotoLightbox.setAttribute("alt", title + ", closeup view");
-          imgPhotoLightbox.setAttribute("tabindex", "0");
+          imgPhotoLightbox.setAttribute("tabindex", "-1");
           slideMedia.appendChild(imgPhotoLightbox);
         } else {
           const vidPhotoLightbox = document.createElement("video");
@@ -139,7 +139,7 @@ export function galeryFactory(data) {
           vidPhotoLightbox.setAttribute("preload", "metadata");
           vidPhotoLightbox.classList.add("lightbox-modal-media");
           vidPhotoLightbox.setAttribute("aria-label", title + ", closeup view");
-          vidPhotoLightbox.setAttribute("tabindex", "0");
+          vidPhotoLightbox.setAttribute("tabindex", "-1");
           slideMedia.appendChild(vidPhotoLightbox);
         }
     
