@@ -11,9 +11,9 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo" /></a>
+      <a href="index.html" id="logo" aria-label="Lien vers la page d'accueil"><img src="assets/images/logo.png" class="logo" alt="logo" /></a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photographer-header">
       </div>
       <section id="listbox">
@@ -21,7 +21,7 @@
           >Trier par</label
         >
         <div class="listbox-custom">
-          <select id="listbox-container" name="select" id="selection">
+          <select id="listbox-container" name="select">
             <option value="popularite" class="popularite">Popularité</option>
             <option value="date">Date</option>
             <option value="titre">Titre</option>
@@ -79,7 +79,7 @@
       role="dialog"
       aria-label="image closeup view"
       aria-hidden="true"
-      tabindex="1"
+      tabindex="0"
     >
       <div id="lightbox-container"></div>
       <button

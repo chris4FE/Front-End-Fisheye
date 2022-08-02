@@ -66,12 +66,16 @@ export function galeryFactory(data) {
         likeInput.classList.add("like-input");
         likeInput.setAttribute("role", "img");
         likeInput.setAttribute("aria-label", "likes");
+        likeInput.setAttribute("tabindex", -1);
+        
     
         /** Likes label */
         const likeLabel = document.createElement("label");
         likeLabel.setAttribute("for", id);
         likeLabel.classList.add("like-label");
         likeLabel.textContent = likes + " ";
+        likeLabel.style.cursor = "pointer";
+
     
         /** MEDIAS - video or image */
         if (image) {
@@ -125,7 +129,7 @@ export function galeryFactory(data) {
           imgPhotoLightbox.setAttribute("src", mediaSrc);
           imgPhotoLightbox.classList.add("lightbox-modal-media");
           imgPhotoLightbox.setAttribute("alt", title + ", closeup view");
-          imgPhotoLightbox.setAttribute("tabindex", "1");
+          imgPhotoLightbox.setAttribute("tabindex", "0");
           slideMedia.appendChild(imgPhotoLightbox);
         } else {
           const vidPhotoLightbox = document.createElement("video");
@@ -135,7 +139,7 @@ export function galeryFactory(data) {
           vidPhotoLightbox.setAttribute("preload", "metadata");
           vidPhotoLightbox.classList.add("lightbox-modal-media");
           vidPhotoLightbox.setAttribute("aria-label", title + ", closeup view");
-          vidPhotoLightbox.setAttribute("tabindex", "1");
+          vidPhotoLightbox.setAttribute("tabindex", "0");
           slideMedia.appendChild(vidPhotoLightbox);
         }
     

@@ -6,6 +6,8 @@ const email = document.getElementById('email');
 const message = document.getElementById('message');
 const focusFirstName = document.getElementById('firstname');
 const closeBtnModal = document.getElementById('close-modal');
+const main = document.getElementById("main");
+
 
 
 // Error messages
@@ -50,6 +52,9 @@ function displayModal() {
 // close contact form
 function closeModal() {
     modal.style.display = "none";
+    main.setAttribute("aria-hidden", false);
+    modal.setAttribute("aria-hidden", true);
+    logo.focus();
 };
 
 // navigation modal

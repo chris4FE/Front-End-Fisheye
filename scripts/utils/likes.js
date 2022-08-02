@@ -40,16 +40,17 @@ async function getLikes() {
       });
     });
 
+    const likesInputEnter = document.querySelectorAll(".legend-like");
 
-    likesInput.forEach((likeInput) => {
-      likeInput.addEventListener("keydown", (e) => {
+    likesInputEnter.forEach((likeInputEnter) => {
+      likeInputEnter.addEventListener("keydown", (e) => {
+        console.log("alert");
         if (e.key === "Enter") {
-        
-        let likeText = parseInt(
-          e.target.nextSibling.textContent
-        ); /** Transform text into number (amount of likes) */
-        let liked = e.target.nextSibling; /** number of likes */
-        let maker = e.currentTarget; /** Target input */
+          // alert(e.target.firstElementChild.textContent )
+        let likeText = parseInt(e.target.lastElementChild.textContent); /** Transform text into number (amount of likes) */
+        let liked = e.target.lastElementChild; /** number of likes */
+        let maker = e.target.firstChild; /** Target input */
+        // let container = e.currentTarget;
   
         /** if checkbox isn't checked */
         if (!maker.checked) {
@@ -58,10 +59,12 @@ async function getLikes() {
         } else {
           likeText++; /** Increment */
         }
+
+      
         liked.textContent = likeText; /** modifies label */
         displayLikes(); /** init display likes function */
-
       }
+      
       })
 
       });

@@ -2,22 +2,43 @@
 const lightboxDisplay = document.getElementById("lightbox");
 const prevNavigation = document.getElementById("prev");
 const nextNavigation = document.getElementById("next");
+const mainArea = document.getElementById("main");
+const logo = document.getElementById("logo");
+const modal = document.getElementById('contact_modal');
+const widget = document.querySelector(".widget");
+const contactBtn = document.querySelector(".contact_button");
+const filterList = document.querySelector(".listbox-custom-new");
+
+
 
 /** Open carousel */
 export function openLightbox() {
   lightboxDisplay.style.display = "block";
-  main.setAttribute("aria-hidden", true);
+  mainArea.setAttribute("aria-hidden", true);
+  mainArea.setAttribute("tabindex", -1);
+  widget.setAttribute("tabindex", -1);
+  logo.setAttribute("tabindex", -1);
+  filterList.setAttribute("tabindex", -1);
+  mainArea.style.display = "none";
+  modal.style.display = "none";
+  widget.style.display = "none";
+  contactBtn.setAttribute("tabindex", -1);
   lightboxDisplay.setAttribute("aria-hidden", false);
   prevNavigation.focus();
 }
+document.openLightbox = openLightbox;
 
 document.closeLightbox = closeLightbox;
 /** Close carousel */
 function closeLightbox() {
   lightboxDisplay.style.display = "none";
-  main.setAttribute("aria-hidden", false);
+  mainArea.setAttribute("aria-hidden", false);
   lightboxDisplay.setAttribute("aria-hidden", true);
-  // logo.focus();
+  logo.setAttribute("tabindex", 0);
+  contactBtn.setAttribute("tabindex", 0);
+  mainArea.style.display = "block";               
+  widget.style.display = "block";
+  logo.focus();
 }
 
 /** Carousel class */
@@ -52,6 +73,7 @@ export default class Lightbox {
       }
       if (e.key === "Escape") {
         closeLightbox();
+
       }
     });
   }
