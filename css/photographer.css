@@ -283,6 +283,7 @@ figcaption .legend-like{
 }
 
 
+
 /* likes */
 
 input[type="checkbox"].like-input {
@@ -314,7 +315,7 @@ input[type="checkbox"].like-input {
     padding: 0 0.6rem;
     font-weight: 100;
   }
-  input[type="checkbox"].like-input:checked + label::before {
+  input[type="checkbox"].like-input:checked + label::before, .checked input[type="checkbox"].like-input + label::before {
     font-weight: 900;
   }
   
