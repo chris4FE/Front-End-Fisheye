@@ -79,10 +79,7 @@ export function photographGaleryDisplay() {
   /** addeventlisteners to open media in carousel */
   for (let i = 0; i < mediasLightbox.length; i++) {
     mediasLightbox[i].addEventListener("click", () => {
-      new Lightbox(
-        i,
-        mediasLightbox.length
-      ); /** create carousel depending on media clicked  dependign on its index and amount of media for carousel length */
+      new Lightbox(i, mediasLightbox.length); /** create carousel depending on media clicked depending on its index and amount of media for carousel length */
       openLightbox(); /** open carousel */
     });
     mediasLightbox[i].addEventListener("keydown", (e) => {

@@ -56,6 +56,7 @@ export default class Lightbox {
     this.currentSlide = currentSlide;
     this.goToSlide(this.currentSlide);
     this.navigation();
+    
   }
 
   /** carousel navigation */
@@ -80,16 +81,22 @@ export default class Lightbox {
 
   /** show next media slide */
   next() {
+    const slidesMedias = document.querySelectorAll(".lightbox-modal-media");
+    slidesMedias[this.currentSlide]?.setAttribute("tabindex", -1); 
     this.goToSlide(this.currentSlide + this.options.slidesToScroll);
   }
 
   /** show previous media slide */
   prev() {
+    const slidesMedias = document.querySelectorAll(".lightbox-modal-media");
+    slidesMedias[this.currentSlide]?.setAttribute("tabindex", -1); 
     this.goToSlide(this.currentSlide - this.options.slidesToScroll);
   }
 
   /** show media depending on index */
   goToSlide(index) {
+    
+
     if (index < 0) {
       index = this.element - this.options.slidesVisible;
     } else if (index > this.element - this.options.slidesVisible) {
@@ -101,5 +108,10 @@ export default class Lightbox {
     lightboxContainer.style.transform = "translateX(" + ratioSlider + "%)"; /** positions container depending on ratioslider */
     lightboxContainer.style.width = ratioWidth + "%";
     this.currentSlide = index;
+
+    const slidesMedias = document.querySelectorAll(".lightbox-modal-media");
+    slidesMedias[this.currentSlide]?.setAttribute("tabindex", 0);
+
+    
   }
 }

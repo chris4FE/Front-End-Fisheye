@@ -64,7 +64,7 @@ for (let option of selectElt.options) {
 
   /** attach options to new listbox */
   newMenu.appendChild(newOption);
-  /** add class to first option in dropdown list in order to style with a dropdown arrow next to the first dropdown option */
+  /** add class to first option in dropdown list in order to style with a dropdown  next to the first dropdown option */
   newMenu.firstChild.classList.add("popularite");
 }
 
