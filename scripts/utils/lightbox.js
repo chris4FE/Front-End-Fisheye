@@ -24,6 +24,8 @@ export function openLightbox() {
   widget.style.display = "none";
   // contactBtn.setAttribute("tabindex", -1);
   lightboxDisplay.setAttribute("aria-hidden", false);
+  // const currentSlideTabindexDefault = document.querySelectorAll(".lightbox-modal-media");
+  // currentSlideTabindexDefault.setAttribute("tabindex", -1);
   prevNavigation.focus();
 }
 document.openLightbox = openLightbox;
