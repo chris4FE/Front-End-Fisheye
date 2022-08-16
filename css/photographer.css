@@ -268,6 +268,7 @@ form textarea {
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 figcaption{
@@ -314,6 +315,7 @@ input[type="checkbox"].like-input {
     color: #901c1c;
     padding: 0 0.6rem;
     font-weight: 100;
+    cursor: pointer;
   }
   input[type="checkbox"].like-input:checked + label::before, .checked input[type="checkbox"].like-input + label::before {
     font-weight: 900;

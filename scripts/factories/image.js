@@ -9,9 +9,17 @@ export default class ImageFactory {
     }
 
     render() {
-        return (`<img class="galery-medias" data-mediaid="${this._photographerId}" 
-        role="link" tabindex="0" 
-        src="../../assets/photographers/${this._photographerId}/${this._image}" 
-        alt="${this._title}"/>`);
+        
+        let imgPhoto = document.createElement("img");
+          imgPhoto.classList.add("galery-medias");
+          imgPhoto.setAttribute("src", `../../assets/photographers/${this._photographerId}/${this._image}`);
+          imgPhoto.setAttribute("data-mediaid", this._photographerId);
+          imgPhoto.setAttribute("alt", this._title);
+          imgPhoto.setAttribute("role", "link");
+          imgPhoto.setAttribute("tabindex", 0);
+          imgPhoto.style.cursor = "pointer";
+          
+    return imgPhoto;
+
     }
 }

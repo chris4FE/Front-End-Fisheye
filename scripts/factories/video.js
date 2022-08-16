@@ -9,14 +9,21 @@ export default class VideoFactory {
 	}
 
 render() {
-	return `
-		
-				<video class="galery-medias" data-mediaid="${this._photographerId}" type="video/mp4"
-                role="link" tabindex="0" 
-                src="../../assets/photographers/${this._photographerId}/${this._video}"/>
-				
-		
-			`;
+ 
+
+    let vidPhoto = document.createElement("video");
+          vidPhoto.classList.add("galery-medias");
+          vidPhoto.setAttribute("type", "video/mp4");
+          vidPhoto.setAttribute("src", `../../assets/photographers/${this._photographerId}/${this._video}`);
+          vidPhoto.setAttribute("data-mediaid", this._photographerId);
+          vidPhoto.setAttribute("alt", this._title);
+          vidPhoto.setAttribute("role", "link");
+          vidPhoto.setAttribute("tabindex", 0);
+          vidPhoto.style.cursor = "pointer";
+
+    return vidPhoto;
+
 	}
+
 	
 }
