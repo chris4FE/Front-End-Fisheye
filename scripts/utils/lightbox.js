@@ -41,6 +41,13 @@ function closeLightbox() {
   mainArea.style.display = "block";               
   widget.style.display = "block";
   logo.focus();
+
+   //init tabindex
+   const slidesMedias = document.querySelectorAll(".lightbox-modal-media");
+   slidesMedias.forEach(element => { 
+     element.setAttribute("tabindex", -1); 
+   });
+   
 }
 
 /** Carousel class */
